@@ -15,7 +15,7 @@
 <form method="post" action="insert">
 <a href="/show">Show users</a><br/>
 <input type="hidden" name="id" value="${user.id}"/><br/>
-Username:<input type="text" name="username" value="${user.username}"/><br/>
+Username:<input type="text" name="email" value="${user.email}"/><br/>
 Password:<input type="password" name="password" value="${user.password}"/><br/>
 <input type="submit" value="Update"/>
 

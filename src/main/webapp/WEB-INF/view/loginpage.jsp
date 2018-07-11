@@ -24,7 +24,7 @@
 </font>
 </c:if>
 
-<br/>Username:<input type="text" name="username" value="${user.username}"/><br/>
+<br/>Username:<input type="text" name="email" value="${user.email}"/><br/>
 Password:<input type="password" name="password" value="${user.password}"/><br/>
 <input type="submit" value="Login"/>
 

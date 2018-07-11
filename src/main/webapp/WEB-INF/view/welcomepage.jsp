@@ -12,56 +12,71 @@
 	<title>Dashboard</title>
 </head>
 <body>
-<div ng-app="">
-	<div class="row">
-		<div class="column left"><img class="insideimg" src="/img/image.jpg"></div>
-		<div class="column right">
-			<div class="row">
-    			<div class="container-fluid">       
-					<div class="upper">
-						<p id="name">REGISTER</p>
-						<a href="/show">Show users</a>
-					<a href="/login">Login</a><br/>
-					</div>
-					
-    			</div>
-			</div>
-
-
-			<form method="post" action="insert">
-
-				<input type="hidden" name="id" value="${user.id}"/><br/>
-				<div class="row">
-    				<div class="container-fluid">
-						<div style="margin-left:25.8%;">
-							<div class="col-3 input-effect">
-								<input class="effect-16" placeholder="" type="text" name="username" value="${user.username}"/>
-								<label>User Name</label>
-								<span class="focus-border"></span>
-							</div>
-						</div>
-					</div>
+	<header>
+		<div class="row">
+			<div class="col-sm-8 upper">
+				<div class="upperleft1">Grab</div>
+				<div class="upperleft2">Cab</div>
+				<div>
+					<img src="/img/12.jpg" style="margin-left:2%;width:74%;float: left;"><hr style="float:left;color:black;"/>
 				</div>
-				<div class="row">
-    				<div class="container-fluid">
-						<div style="margin-left:25.8%;">
-							<div class="col-3 input-effect">
-				<input class="effect-16" placeholder="" type="password" name="password" value="${user.password}"/>
-				<label>Password</label>
-				<span class="focus-border"></span>
+			</div>
+			<div class="col-sm-4 upper">
+				<div class="upperright">REGISTER</div>
+				<a href="/login">Already Registered Login Here</a><br/>
 			</div>
 		</div>
-	</div>
-</div>
-<!-- Username:<input type="text" name="username" value="${user.username}"/><br/>
-Password:<input type="password" name="password" value="${user.password}"/><br/> -->
-<input type="submit" value="Register"/>
-
-</form>
-</div>
-</div>
-</div>
-</body>
-
-
-</html>
+	</header>
+	<div class="main">
+		<div class="row">
+			<div class="col-sm-8 leftcol">
+				<img src="/img/13.jpg" style="height:100%;width:100%;">
+			</div>
+            <form method="post" action="insert">
+                <input type="hidden" name="id" value="${user.id}"/>
+			<div class="col-sm-4 rightcol">
+				<div class="col-3">
+					<input class="effect-16" type="text" placeholder="" name="firstname" value="${user.firstname}"/>
+					<label>First Name</label>
+					<span class="focus-border"></span>
+				</div>
+				<div class="col-3">
+					<input class="effect-16" type="text" placeholder="" name="lastname" value="${user.lastname}"/>
+					<label>Last Name</label>
+					<span class="focus-border"></span>
+				</div>
+				<div class="col-3">
+					<input class="effect-16" type="text" placeholder="" name="email" value="${user.email}"/>
+					<label>Email ID</label>
+					<span class="focus-border"></span>
+				</div>
+				<div class="col-3">
+					<input class="effect-16" type="text" placeholder="" name="contact" value="${user.contact}"/>
+					<label>Contact No</label>
+					<span class="focus-border"></span>
+				</div>
+				<div class="col-3">
+					<input class="effect-16" type="text" placeholder="" name="gender" value="${user.gender}"/>
+					<label>Gender</label>
+					<span class="focus-border"></span>
+				</div>
+				<div class="col-3">
+					<input class="effect-16" type="text" placeholder="" name="address" value="${user.address}"/>
+					<label>Address</label>
+					<span class="focus-border"></span>
+				</div>
+				<div class="col-3">
+					<input class="effect-16" type="text" placeholder="" name="password" value="${user.password}"/>
+					<label>Choose Your Password</label>
+					<span class="focus-border"></span>
+				</div>
+				<div class="btn">
+					<!--<button type="button" class="btn btn-danger btn-lg">Register</button>-->
+                    <input type="submit" value="Register"/>
+				</div>
+			</div>
+            </form>
+        </div>
+    </div>
+	
+    </body>

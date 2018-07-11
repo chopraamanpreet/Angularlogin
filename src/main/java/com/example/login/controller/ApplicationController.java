@@ -72,7 +72,7 @@ public class ApplicationController {
 	@RequestMapping("/verify-user")
 	public String verifyUser(@ModelAttribute User user,HttpServletRequest request) {
 		
-		if(userService.findByUsernameAndPassword(user.getUsername(),user.getPassword())!=null) {
+		if(userService.findByEmailAndPassword(user.getEmail(),user.getPassword())!=null) {
 			
 			request.setAttribute("users",userService.showAllUsers());
 			return "showpage";

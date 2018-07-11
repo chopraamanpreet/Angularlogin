@@ -36,7 +36,12 @@ tr:nth-child(even) {
 <table>
 <tr>
 <td>Id</td>
-<td>Username</td>
+<td>FirstName</td>
+<td>LastName</td>
+<td>Email</td>
+<td>Contact</td>
+<td>Gender</td>
+<td>Address</td>
 <td>Password</td>
 <td>Delete</td>
 <td>Edit</td>
@@ -45,7 +50,12 @@ tr:nth-child(even) {
 <c:forEach var="user" items="${users}">
 <tr>
 <td>${user.id}</td>
-<td>${user.username}</td>
+<td>${user.firstname}</td>
+<td>${user.lastname}</td>
+<td>${user.email}</td>
+<td>${user.contact}</td>
+<td>${user.gender}</td>
+<td>${user.address}</td>
 <td>${user.password}</td>
 <td><a href="/delete-user?id=${user.id}">Delete</a>
 <td><a href="/edit-user?id=${user.id}">Edit</a>
