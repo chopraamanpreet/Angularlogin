@@ -22,11 +22,8 @@
 				</div>
 			</div>
 			<div class="col-sm-4 upper">
-				<div class="upperright">REGISTER
-				<a href="/driverregister" class="btn btn-default">Register as Driver</a><br/>
-				</div>
+				<div class="upperright">REGISTER</div>
 				<a href="/login">Already Registered Login Here</a><br/>
-				
 			</div>
 		</div>
 	</header>
@@ -35,41 +32,41 @@
 			<div class="col-sm-8 leftcol">
 				<img src="/img/13.jpg" style="height:100%;width:100%;">
 			</div>
-            <form method="post" action="insert">
-                <input type="hidden" name="id" value="${user.id}"/>
+            <form method="post" action="insert-driver">
+                <input type="hidden" name="id" value="${driver.id}"/>
 			<div class="col-sm-4 rightcol">
 				<div class="col-3">
-					<input class="effect-16" type="text" placeholder="" name="firstname" value="${user.firstname}"/>
+					<input class="effect-16" type="text" placeholder="" name="firstname" value="${driver.firstname}"/>
 					<label>First Name</label>
 					<span class="focus-border"></span>
 				</div>
 				<div class="col-3">
-					<input class="effect-16" type="text" placeholder="" name="lastname" value="${user.lastname}"/>
+					<input class="effect-16" type="text" placeholder="" name="lastname" value="${driver.lastname}"/>
 					<label>Last Name</label>
 					<span class="focus-border"></span>
 				</div>
 				<div class="col-3">
-					<input class="effect-16" type="text" placeholder="" name="email" value="${user.email}"/>
+					<input class="effect-16" type="text" placeholder="" name="email" value="${driver.email}"/>
 					<label>Email ID</label>
 					<span class="focus-border"></span>
 				</div>
 				<div class="col-3">
-					<input class="effect-16" type="text" placeholder="" name="contact" value="${user.contact}"/>
+					<input class="effect-16" type="text" placeholder="" name="contact" value="${driver.contact}"/>
 					<label>Contact No</label>
 					<span class="focus-border"></span>
 				</div>
 				<div class="col-3">
-					<input class="effect-16" type="text" placeholder="" name="gender" value="${user.gender}"/>
+					<input class="effect-16" type="text" placeholder="" name="gender" value="${driver.gender}"/>
 					<label>Gender</label>
 					<span class="focus-border"></span>
 				</div>
 				<div class="col-3">
-					<input class="effect-16" type="text" placeholder="" name="address" value="${user.address}"/>
+					<input class="effect-16" type="text" placeholder="" name="address" value="${driver.address}"/>
 					<label>Address</label>
 					<span class="focus-border"></span>
 				</div>
 				<div class="col-3">
-					<input class="effect-16" type="text" placeholder="" name="password" value="${user.password}"/>
+					<input class="effect-16" type="text" placeholder="" name="password" value="${driver.password}"/>
 					<label>Choose Your Password</label>
 					<span class="focus-border"></span>
 				</div>
@@ -78,6 +75,7 @@
                     <input type="submit" value="Register"/>
 				</div>
 			</div>
+			
             </form>
         </div>
     </div>
