@@ -63,5 +63,6 @@ tr:nth-child(even) {
 </c:forEach>
 
 </table>
+<h1>hello${users.firstname}</h1>
 </body>
 </html>

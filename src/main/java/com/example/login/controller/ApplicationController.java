@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.example.login.model.Driver;
 import com.example.login.model.Trip;
@@ -20,6 +21,7 @@ import com.example.login.services.TripService;
 import com.example.login.services.UserService;
 
 @Controller
+@SessionAttributes("users.firstname")
 public class ApplicationController {
 	
 	@ResponseBody
@@ -40,6 +42,11 @@ public class ApplicationController {
 	{
 		return "loginpage";
 	}
+	@RequestMapping("/loginDriver")
+	public String LoginDriver()
+	{
+		return "loginpagedriver";
+	}
 	
 	@RequestMapping("/driverregister")
 	public String DriverRegister()
@@ -55,7 +62,7 @@ public class ApplicationController {
 		userService.saveMyUser(user);
 		//return "welcomepage";
 		request.setAttribute("users",userService.showAllUsers());
-		return "showpage";
+		return "userdashboard";
 	}
 	
 	@GetMapping("/show")
@@ -84,12 +91,31 @@ public class ApplicationController {
 		
 		if(userService.findByEmailAndPassword(user.getEmail(),user.getPassword())!=null) {
 			
-			request.setAttribute("users",userService.showAllUsers());
-			return "showpage";
+			//request.setAttribute("users",userService.showSpecificUsers(user.getEmail()));
+			request.setAttribute("users",userService.findByEmail(user.getEmail()));
+			return "userdashboard";
 		}
 		else {
 			request.setAttribute("error","Invalid credentials");
 			return "loginpage";
+		}
+		
+		
+	}
+	@RequestMapping("/verify-driver")
+	public String verifyDriver(@ModelAttribute Driver driver,HttpServletRequest request) {
+		
+		if(driverService.findByEmailAndPassword(driver.getEmail(),driver.getPassword())!=null) {
+			Driver obj=driverService.findByEmail(driver.getEmail());
+			int id=obj.getId();
+			request.setAttribute("drivers",driverService.findByEmail(driver.getEmail()));
+			//request.setAttribute("trips1",tripService.showHistoryDriver(id));
+			request.setAttribute("trips1",tripService.findallById(id));
+			return "driverdashboard";
+		}
+		else {
+			request.setAttribute("error","Invalid credentials");
+			return "loginpagedriver";
 		}
 		
 		
@@ -110,36 +136,36 @@ public class ApplicationController {
 	public String showAllDrivers(HttpServletRequest request)
 	{
 		request.setAttribute("drivers",driverService.showAllDrivers());
-		return "showpage";
+		return "showpagedriver";
 	}
 	
 	@RequestMapping("/delete-driver")
 	public String deleteDriver(@RequestParam int id,HttpServletRequest request) {
 		driverService.deleteMyDriver(id);
 		request.setAttribute("drivers",driverService.showAllDrivers());
-		return "showpage";
+		return "showpagedriver";
 	}
 	
 	@RequestMapping("/edit-driver")
 	public String editDriver(@RequestParam int id,HttpServletRequest request) {
 		driverService.editMyDriver(id);
 		request.setAttribute("driver",driverService.editMyDriver(id));
-		return "editpage";
+		return "editpagedriver";
 	}
 	
-	@RequestMapping("/verify-driver")
-	public String verifyDriver(@ModelAttribute Driver user,HttpServletRequest request) {
+	/*@RequestMapping("/verify-driver")
+	public String verifyDriver(@ModelAttribute Driver driver,HttpServletRequest request) {
 		
-		if(driverService.findByEmailAndPassword(user.getEmail(),user.getPassword())!=null) {
+		if(driverService.findByEmailAndPassword(driver.getEmail(),driver.getPassword())!=null) {
 			
 			request.setAttribute("drivers",driverService.showAllDrivers());
-			return "showpage";
+			return "showpagedriver";
 		}
 		else {
 			request.setAttribute("error","Invalid credentials");
 			return "loginpage";
 		}
-	}
+	}*/
 	
 	@Autowired
 	private TripService tripService;
@@ -148,42 +174,45 @@ public class ApplicationController {
 	public String insertTrip(@ModelAttribute Trip trip,BindingResult bindingResult,HttpServletRequest request) {
 		tripService.saveMyTrip(trip);
 		//return "welcomepage";
-		request.setAttribute("trips",tripService.showAllTrips());
-		return "showpage";
+		request.setAttribute("trips1",tripService.findById(trip.getDriverid()));
+		return "driverdashboard";
 	}
 	
 	@GetMapping("/show-trip")
 	public String showAllTrips(HttpServletRequest request)
 	{
 		request.setAttribute("trips",tripService.showAllTrips());
-		return "showpage";
+		return "showtripdriver";
 	}
 	
 	@RequestMapping("/delete-trip")
-	public String deleteTrip(@RequestParam int id,HttpServletRequest request) {
+	public String deleteTrip(@RequestParam Long id,HttpServletRequest request) {
 		tripService.deleteMyTrip(id);
 		request.setAttribute("trips",tripService.showAllTrips());
-		return "showpage";
+		return "showtripdriver";
 	}
 	
 	@RequestMapping("/edit-trip")
 	public String editTrip(@RequestParam int id,HttpServletRequest request) {
 		tripService.editMyTrip(id);
 		request.setAttribute("trip",tripService.editMyTrip(id));
-		return "editpage";
+		return "edittripdriver";
 	}
 	
-	@RequestMapping("/verify-trip")
-	public String verifyTrip(@ModelAttribute Trip user,HttpServletRequest request) {
+	@RequestMapping("/search-trip")
+	public String searchTrip(@ModelAttribute Trip user,HttpServletRequest request) {
 		
 		if(tripService.findBySourceAndDestination(user.getSource(),user.getDestination())!=null) {
 			
 			request.setAttribute("trips",tripService.showAllTrips());
-			return "showpage";
+			return "showsearchtrip";
 		}
 		else {
 			request.setAttribute("error","Invalid credentials");
 			return "loginpage";
 		}
 	}
+	
+	
+	
 }

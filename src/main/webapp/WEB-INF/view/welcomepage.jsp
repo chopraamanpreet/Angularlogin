@@ -23,9 +23,11 @@
 			</div>
 			<div class="col-sm-4 upper">
 				<div class="upperright">REGISTER
-				<a href="/driverregister" class="btn btn-default">Register as Driver</a><br/>
+				<a href="/driverregister" class="btn btn-default" style="margin-top:-60px;">Register as Driver</a><br/>
+				<a href="/login" class="btn btn-default" style="margin-top:-60px;">Already Registered Login Here</a><br/>
+				<a href="/loginDriver" class="btn btn-default" style="margin-top:-60px;">Login for Driver</a><br/>
 				</div>
-				<a href="/login">Already Registered Login Here</a><br/>
+				<!-- <a href="/login">Already Registered Login Here</a><br/> -->
 				
 			</div>
 		</div>

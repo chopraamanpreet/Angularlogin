@@ -9,6 +9,7 @@ import javax.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import com.example.login.model.Driver;
+
 import com.example.login.repository.DriverRepository;
 
 @Service
@@ -57,4 +58,8 @@ public class DriverService {
 	public Driver findByEmailAndPassword(String email,String password) {
 		return driverRepository.findByEmailAndPassword(email, password);
 	}
+	public Driver findByEmail(String email) {
+		return driverRepository.findByEmail(email);
+	}
+
 }

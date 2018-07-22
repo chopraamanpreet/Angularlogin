@@ -54,7 +54,14 @@ public class UserService {
 
 	}
 	
+	
 	public User findByEmailAndPassword(String email,String password) {
 		return userRepository.findByEmailAndPassword(email, password);
+	}
+	/*public List<String> showSpecificUsers(String email) {
+		return userRepository.getAllEmail(email);
+	}*/
+	public User findByEmail(String email) {
+		return userRepository.findByEmail(email);
 	}
 }

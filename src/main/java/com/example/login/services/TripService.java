@@ -9,6 +9,7 @@ import javax.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import com.example.login.model.Trip;
+
 import com.example.login.repository.TripRepository;
 
 @Service
@@ -35,7 +36,7 @@ public class TripService {
 		return trips;
 	}
 	
-	public void deleteMyTrip(int id) {
+	public void deleteMyTrip(Long id) {
 		tripRepository.deleteById(id);
 	}
 	
@@ -57,4 +58,13 @@ public class TripService {
 	public Trip findBySourceAndDestination(String source,String destination) {
 		return tripRepository.findBySourceAndDestination(source, destination);
 	}
+	public Iterable<Trip> findallById(int id) {
+		return tripRepository.findAllById(id);
+	}
+	public Trip findById(int id) {
+		return tripRepository.findById(id);
+	}
+	/*public List<Object[]> showHistoryDriver(int id) {
+	return tripRepository.getHistoryDriver(id);
+}*/
 }

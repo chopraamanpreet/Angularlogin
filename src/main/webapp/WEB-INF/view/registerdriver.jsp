@@ -23,7 +23,7 @@
 			</div>
 			<div class="col-sm-4 upper">
 				<div class="upperright">REGISTER</div>
-				<a href="/login">Already Registered Login Here</a><br/>
+				
 			</div>
 		</div>
 	</header>

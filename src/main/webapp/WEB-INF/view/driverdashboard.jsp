@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <html>
 
 <head>
@@ -25,11 +26,11 @@
 			</div>
 		</div>
 	</header>
-
+<h1>hello${drivers.firstname}</h1>
 	<div class="row main">
 		<form method="post" action="insert-trip">
 		<input type="hidden" name="id" value="${trip.id}"/>
-		<input type="hidden" name="driverid" value="${trip.driverid}"/>
+		<input type="hidden" name="driverid" value="${drivers.id}"/>
 			<div class="col-sm-6 left">
 				<div class="inner">
 				<input type="text" name="source" style="margin-top: 16%;" placeholder="Enter source..." value="${trip.source}"><br/><br/>
@@ -48,14 +49,17 @@
 						    <th>Source</th>
 						    <th>Destination</th> 
 						  </tr>
-						  <tr>
-						    <td>Anand</td>
-						    <td>Ahmedabad</td>
-						  </tr>
-						  <tr>
-						    <td>Surat</td>
-						    <td>Dahod</td> 
-						  </tr>
+			
+						 <c:forEach var="trips12" items="${trips1}">
+							<tr>
+							
+								<td>${trips12.source}</td>
+								<td>${trips12.destination}</td>
+								
+
+							</tr>
+						</c:forEach>
+						    
 						</table>
 					</div>
 				</div>
