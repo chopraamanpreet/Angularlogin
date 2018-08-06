@@ -11,9 +11,10 @@ import com.example.login.model.Trip;
 
 public interface TripRepository extends CrudRepository<Trip, Long> {
 
-	public Trip findBySourceAndDestination(String source,String destination);
+	public List<Trip> findBySourceAndDestination(String source,String destination);
 	public Trip findById(int id);
-	/*@Query("SELECT t.source,t.destination FROM Trip t where t.driverid =:driver")
-	public List<Object[]> getHistoryDriver(@Param("driver")int id);*/
-	public Iterable<Trip> findAllById(int id);
+	//@Query(value="SELECT t.source,t.destination FROM drivertrip t where t.id = 5;",nativeQuery = true)
+	//@Query(value="select u.source,u.destination from (select source source,destination destination from drivertrip)u;",nativeQuery = true)
+	//public List<Trip> getHistoryDriver();
+	public Iterable<Trip> findAllByDriverid(int id);
 }

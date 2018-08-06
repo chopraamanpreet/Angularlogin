@@ -61,5 +61,8 @@ public class DriverService {
 	public Driver findByEmail(String email) {
 		return driverRepository.findByEmail(email);
 	}
+	public Driver findById(int id) {
+		return driverRepository.findById(id);
+	}
 
 }

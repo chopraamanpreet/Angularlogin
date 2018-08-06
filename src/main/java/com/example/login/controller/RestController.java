@@ -17,11 +17,11 @@ public class RestController {
 	@Autowired
 	private UserService userService;
 	
-	@GetMapping("/")
+	/*@GetMapping("/")
 	public String hello()
 	{
-		return "This id Home DB";
-	}
+		return "homepage";
+	}*/
 	
 	@GetMapping("/save-user")
 	public String saveUser(@RequestParam String firstname, @RequestParam String lastname, @RequestParam String email, @RequestParam int contact, @RequestParam String gender, @RequestParam String address, @RequestParam String password) {

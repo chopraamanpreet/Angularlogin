@@ -33,6 +33,7 @@ tr:nth-child(even) {
 
 <body>
 <h2>Trip data</h2>
+<a href="/logout" class="btn btn-default">Logout</a><br/>
 <table>
 <tr>
 <td>DriverId</td>
@@ -42,7 +43,7 @@ tr:nth-child(even) {
 
 <c:forEach var="trip" items="${trips}">
 <tr>
-<td>${trip.driverid}</td>
+<td><a href="searchdriverprofile?driverid=${trip.driverid}">${trip.driverid}</a></td>
 <td>${trip.source}</td>
 <td>${trip.destination}</td>
 </tr>

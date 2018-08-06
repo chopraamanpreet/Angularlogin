@@ -15,17 +15,17 @@
 	<header>
 		<div class="row">
 			<div class="col-sm-8 upper">
-				<div class="upperleft1">Grab</div>
-				<div class="upperleft2">Cab</div>
+				<div class="upperleft1" style="color: #14bdee;">Grab</div>
+				<div class="upperleft2" style="color: #384158;">Cab</div>
 				<div>
 					<img src="/img/12.jpg" style="margin-left:2%;width:74%;float: left;"><hr style="float:left;color:black;"/>
 				</div>
 			</div>
 			<div class="col-sm-4 upper">
 				<div class="upperright">REGISTER
-				<a href="/driverregister" class="btn btn-default" style="margin-top:-60px;">Register as Driver</a><br/>
-				<a href="/login" class="btn btn-default" style="margin-top:-60px;">Already Registered Login Here</a><br/>
-				<a href="/loginDriver" class="btn btn-default" style="margin-top:-60px;">Login for Driver</a><br/>
+				<a href="/driverregister" class="btn btn-info" style="margin-top:1px;margin-right: -3px;">Register as Driver</a>
+<a href="/login" class="btn btn-primary" style="margin-top:-100px;">Already Registered Login Here</a>
+				<a href="/loginDriver" class="btn btn-primary" style="margin-top:-100px;margin-right: 300px;">Login for Driver</a>
 				</div>
 				<!-- <a href="/login">Already Registered Login Here</a><br/> -->
 				
@@ -41,43 +41,43 @@
                 <input type="hidden" name="id" value="${user.id}"/>
 			<div class="col-sm-4 rightcol">
 				<div class="col-3">
-					<input class="effect-16" type="text" placeholder="" name="firstname" value="${user.firstname}"/>
-					<label>First Name</label>
+					<input class="effect-16" type="text" placeholder="First Name" name="firstname" value="${user.firstname}"/>
+					<label></label>
 					<span class="focus-border"></span>
 				</div>
 				<div class="col-3">
-					<input class="effect-16" type="text" placeholder="" name="lastname" value="${user.lastname}"/>
-					<label>Last Name</label>
+					<input class="effect-16" type="text" placeholder="Last Name" name="lastname" value="${user.lastname}"/>
+					<label></label>
 					<span class="focus-border"></span>
 				</div>
 				<div class="col-3">
-					<input class="effect-16" type="text" placeholder="" name="email" value="${user.email}"/>
-					<label>Email ID</label>
+					<input class="effect-16" type="text" placeholder="Email ID" name="email" value="${user.email}" ng-model="email"/>
+					<label></label>
 					<span class="focus-border"></span>
 				</div>
 				<div class="col-3">
-					<input class="effect-16" type="text" placeholder="" name="contact" value="${user.contact}"/>
-					<label>Contact No</label>
+					<input class="effect-16" type="text" placeholder="Contact No" name="contact" value="${user.contact}"/>
+					<label></label>
 					<span class="focus-border"></span>
 				</div>
 				<div class="col-3">
-					<input class="effect-16" type="text" placeholder="" name="gender" value="${user.gender}"/>
-					<label>Gender</label>
+					<input class="effect-16" type="text" placeholder="Gender" name="gender" value="${user.gender}"/>
+					<label></label>
 					<span class="focus-border"></span>
 				</div>
 				<div class="col-3">
-					<input class="effect-16" type="text" placeholder="" name="address" value="${user.address}"/>
-					<label>Address</label>
+					<input class="effect-16" type="text" placeholder="Address" name="address" value="${user.address}"/>
+					<label></label>
 					<span class="focus-border"></span>
 				</div>
 				<div class="col-3">
-					<input class="effect-16" type="text" placeholder="" name="password" value="${user.password}"/>
-					<label>Choose Your Password</label>
+					<input class="effect-16" type="password" placeholder="Choose Your Password" name="password" value="${user.password}"/>
+					<label></label>
 					<span class="focus-border"></span>
 				</div>
 				<div class="btn">
 					<!--<button type="button" class="btn btn-danger btn-lg">Register</button>-->
-                    <input type="submit" value="Register"/>
+                    <input type="submit" class="btn btn-primary" value="Register"/>
 				</div>
 			</div>
             </form>

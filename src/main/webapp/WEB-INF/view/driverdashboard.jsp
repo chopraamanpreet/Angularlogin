@@ -18,31 +18,34 @@
 	<header>
 		<div class="row">
 			<div class="col-sm-8 upper">
-				<div class="upperleft1">Grab</div>
-				<div class="upperleft2">Cab</div>
+				<div class="upperleft1" style="color: #14bdee;">Grab</div>
+				<div class="upperleft2" style="color: #384158;">Cab</div>
 				<div>
 					<img src="/img/12.jpg" style="margin-left:2%;width:67%;float: left;"><hr style="float:left;color:black;"/>
 				</div>
 			</div>
+			<h1 style="margin-top: 4%;">hello ${drivers.firstname}</h1>
+			<a href="/logout" class="btn btn-primary" style="margin-left: 93%;margin-top: -6%; width:auto;">Logout</a><br/>
 		</div>
 	</header>
-<h1>hello${drivers.firstname}</h1>
+
 	<div class="row main">
 		<form method="post" action="insert-trip">
 		<input type="hidden" name="id" value="${trip.id}"/>
 		<input type="hidden" name="driverid" value="${drivers.id}"/>
-			<div class="col-sm-6 left">
+			<div class="col-sm-12 left">
 				<div class="inner">
-				<input type="text" name="source" style="margin-top: 16%;" placeholder="Enter source..." value="${trip.source}"><br/><br/>
-				<input type="text" name="destination" placeholder="Enter Destination..." value="${trip.destination}"><br/><br/>
-				<input type="submit" class="btn-danger btn" value="Add Trip" />
+				<input type="text" name="source" placeholder="Enter source..." value="${trip.source}">
+				<input type="text" name="destination" placeholder="Enter Destination..." value="${trip.destination}"><br /><br />
+				<input type="submit" class="btn-danger btn" value="Add Trip" style="margin-left:34%;" />
 				</div>
 			</div>
 		</form>
-		<div class="col-sm-6">
+	
+	<div class="col-sm-12">
 			<div class="row right">
 				<div class="inner2">
-					<div class="history">HISTORY</div><br/><br/>
+					<div class="history">HISTORY</div>
 					<div class="trips">
 						<table>
 						  <tr>
@@ -65,8 +68,10 @@
 				</div>
 			</div>
 		</div>
-	</div>
-	<footer class="footer-distributed">
+		</div>
+		
+	
+		<footer class="footer-distributed">
 
 			<div class="footer-left">
 

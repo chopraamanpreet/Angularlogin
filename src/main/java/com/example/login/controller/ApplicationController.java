@@ -14,9 +14,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.example.login.model.Driver;
+import com.example.login.model.RecentTrip;
 import com.example.login.model.Trip;
 import com.example.login.model.User;
 import com.example.login.services.DriverService;
+import com.example.login.services.RecentTripService;
 import com.example.login.services.TripService;
 import com.example.login.services.UserService;
 
@@ -29,6 +31,12 @@ public class ApplicationController {
 	public String home()
 	{
 		return "This is Home page";
+	}
+	
+	@RequestMapping("/")
+	public String Index()
+	{
+		return "homepage";
 	}
 	
 	@RequestMapping("/welcome")
@@ -53,7 +61,11 @@ public class ApplicationController {
 	{
 		return "registerdriver";
 	}
-	
+	@RequestMapping("/logout")
+	public String Logout()
+	{
+		return "welcomepage";
+	}
 	@Autowired
 	private UserService userService;
 	
@@ -90,9 +102,11 @@ public class ApplicationController {
 	public String verifyUser(@ModelAttribute User user,HttpServletRequest request) {
 		
 		if(userService.findByEmailAndPassword(user.getEmail(),user.getPassword())!=null) {
-			
+			User obj=userService.findByEmail(user.getEmail());
+			int id=obj.getId();
 			//request.setAttribute("users",userService.showSpecificUsers(user.getEmail()));
 			request.setAttribute("users",userService.findByEmail(user.getEmail()));
+			request.setAttribute("trips1",rtripService.findallById(id));
 			return "userdashboard";
 		}
 		else {
@@ -109,7 +123,7 @@ public class ApplicationController {
 			Driver obj=driverService.findByEmail(driver.getEmail());
 			int id=obj.getId();
 			request.setAttribute("drivers",driverService.findByEmail(driver.getEmail()));
-			//request.setAttribute("trips1",tripService.showHistoryDriver(id));
+			//request.setAttribute("trips1",tripService.showHistoryDriver());
 			request.setAttribute("trips1",tripService.findallById(id));
 			return "driverdashboard";
 		}
@@ -138,7 +152,12 @@ public class ApplicationController {
 		request.setAttribute("drivers",driverService.showAllDrivers());
 		return "showpagedriver";
 	}
-	
+	@GetMapping("/searchdriverprofile")
+	public String showSpecificDriver(@RequestParam("driverid") int id, HttpServletRequest request)
+	{
+		request.setAttribute("driver",driverService.findById(id));
+		return "showdriverprofile";
+	}
 	@RequestMapping("/delete-driver")
 	public String deleteDriver(@RequestParam int id,HttpServletRequest request) {
 		driverService.deleteMyDriver(id);
@@ -174,7 +193,7 @@ public class ApplicationController {
 	public String insertTrip(@ModelAttribute Trip trip,BindingResult bindingResult,HttpServletRequest request) {
 		tripService.saveMyTrip(trip);
 		//return "welcomepage";
-		request.setAttribute("trips1",tripService.findById(trip.getDriverid()));
+		request.setAttribute("trips1",tripService.findallById(trip.getDriverid()));
 		return "driverdashboard";
 	}
 	
@@ -200,19 +219,65 @@ public class ApplicationController {
 	}
 	
 	@RequestMapping("/search-trip")
-	public String searchTrip(@ModelAttribute Trip user,HttpServletRequest request) {
+	public String searchTrip(@ModelAttribute Trip trip,HttpServletRequest request) {
 		
-		if(tripService.findBySourceAndDestination(user.getSource(),user.getDestination())!=null) {
-			
-			request.setAttribute("trips",tripService.showAllTrips());
+		if(tripService.findBySourceAndDestination(trip.getSource(),trip.getDestination())!=null) {
+			//RecentTrip rtrip= new RecentTrip(trip.getDriverid(),trip.getSource(),trip.getDestination());
+			//rtripService.saveMyTrip(rtrip);
+			request.setAttribute("trips",tripService.findBySourceAndDestination(trip.getSource(),trip.getDestination()));
 			return "showsearchtrip";
 		}
 		else {
 			request.setAttribute("error","Invalid credentials");
-			return "loginpage";
+			return "userdashboard";
 		}
 	}
 	
+	@Autowired
+	private RecentTripService rtripService;
+	
+	@PostMapping("insert-rtrip")
+	public String insertRTrip(@ModelAttribute RecentTrip trip,BindingResult bindingResult,HttpServletRequest request) {
+		rtripService.saveMyTrip(trip);
+		//return "welcomepage";
+		request.setAttribute("trips1",rtripService.findallById(trip.getUserid()));
+		return "userdashboard";
+	}
+	
+	/*@GetMapping("/show-trip")
+	public String showAllTrips(HttpServletRequest request)
+	{
+		request.setAttribute("trips",tripService.showAllTrips());
+		return "showtripdriver";
+	}
+	
+	@RequestMapping("/delete-trip")
+	public String deleteTrip(@RequestParam Long id,HttpServletRequest request) {
+		tripService.deleteMyTrip(id);
+		request.setAttribute("trips",tripService.showAllTrips());
+		return "showtripdriver";
+	}
+	
+	@RequestMapping("/edit-trip")
+	public String editTrip(@RequestParam int id,HttpServletRequest request) {
+		tripService.editMyTrip(id);
+		request.setAttribute("trip",tripService.editMyTrip(id));
+		return "edittripdriver";
+	}
+	
+	@RequestMapping("/search-trip")
+	public String searchTrip(@ModelAttribute Trip user,HttpServletRequest request) {
+		
+		if(tripService.findBySourceAndDestination(user.getSource(),user.getDestination())!=null) {
+			
+			request.setAttribute("trips",tripService.findBySourceAndDestination(user.getSource(),user.getDestination()));
+			return "showsearchtrip";
+		}
+		else {
+			request.setAttribute("error","Invalid credentials");
+			return "userdashboard";
+		}
+	}*/
 	
 	
 }

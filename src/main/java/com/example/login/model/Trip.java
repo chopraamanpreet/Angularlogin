@@ -1,6 +1,7 @@
 package com.example.login.model;
 
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -10,9 +11,13 @@ import javax.persistence.Table;
 public class Trip {
 
 	@Id
+	@Column(name = "id")
 	private int id;
+	@Column(name = "driverid")
 	private int driverid;
+	@Column(name = "source")
 	private String source;
+	@Column(name = "destination")
 	private String destination;
 	
 	

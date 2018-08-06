@@ -43,19 +43,23 @@ tr:nth-child(even) {
 					<img src="/img/12.jpg" style="margin-left:2%;width:67%;float: left;"><hr style="float:left;color:black;"/>
 				</div>
 			</div>
+			<a href="/logout" class="btn btn-default">Logout</a><br/>
 		</div>
 	</header>
 
 	<div class="row main">
-		<form method="post" action="search">
+		<form method="post" action="search-trip">
+		
 			<div class="col-sm-6 left">
 				<div class="inner">
+				<
 				<input type="text" name="source" style="margin-top: 16%;" placeholder="Enter source..." value="${trip.source}"><br/><br/>
 				<input type="text" name="destination" placeholder="Enter Destination..." value="${trip.destination}"><br/><br/>
 				<input type="submit" class="btn-danger btn" value="Search" />
 				</div>
 			</div>
 		</form>
+		
 		<div class="col-sm-6">
 			<div class="row right">
 				<div class="inner2">
@@ -63,17 +67,21 @@ tr:nth-child(even) {
 					<div class="trips">
 						<table>
 						  <tr>
+						  
 						    <th>Source</th>
 						    <th>Destination</th> 
 						  </tr>
-						  <tr>
-						    <td>Anand</td>
-						    <td>Ahmedabad</td>
-						  </tr>
-						  <tr>
-						    <td>Surat</td>
-						    <td>Dahod</td> 
-						  </tr>
+			
+						 <c:forEach var="trips12" items="${trips1}">
+							<tr>
+							
+								<td>${trips12.source}</td>
+								<td>${trips12.destination}</td>
+								
+
+							</tr>
+						</c:forEach>
+						    
 						</table>
 					</div>
 				</div>
@@ -139,34 +147,6 @@ tr:nth-child(even) {
 			</div>
 
 		</footer>
-		<!-- <table>
-<tr>
-<td>Id</td>
-<td>FirstName</td>
-<td>LastName</td>
-<td>Email</td>
-<td>Contact</td>
-<td>Gender</td>
-<td>Address</td>
-<td>Password</td>
-<td>Delete</td>
-<td>Edit</td>
-</tr>
-
-
-<tr>
-<td>${users.id}</td>
-<td>${users.firstname}</td>
-<td>${users.lastname}</td>
-<td>${users.email}</td>
-<td>${users.contact}</td>
-<td>${users.gender}</td>
-<td>${users.address}</td>
-<td>${users.password}</td>
-
-</tr>
-
-
-</table> -->
-</body>
-</html>
+		</body>
+		</html>
+		
