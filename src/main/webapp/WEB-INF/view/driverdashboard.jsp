@@ -16,7 +16,7 @@
 </head>
 <body>
 	<header>
-		<div class="row">
+		<div class="row">	
 			<div class="col-sm-8 upper">
 				<div class="upperleft1" style="color: #14bdee;">Grab</div>
 				<div class="upperleft2" style="color: #384158;">Cab</div>

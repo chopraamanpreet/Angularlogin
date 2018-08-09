@@ -33,6 +33,7 @@ tr:nth-child(even) {
 
 <body>
 <h2>Driver Profile</h2>
+<a href="/logout" class="btn btn-default">Logout</a><br/>
 <table>
 <tr>
 <td>Id</td>

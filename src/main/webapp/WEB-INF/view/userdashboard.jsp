@@ -1,10 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>	
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <html>
-
-
 
 <head>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
@@ -15,52 +13,36 @@
 	<link href="/css/footer.css" rel="stylesheet" type="text/css">
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 	<title>Dashboard</title>
-	<style>
-table {
-    font-family: arial, sans-serif;
-    border-collapse: collapse;
-    width: 100%;
-}
-
-td, th {
-    border: 1px solid #dddddd;
-    text-align: left;
-    padding: 8px;
-}
-
-tr:nth-child(even) {
-    background-color: #dddddd;
-}
-</style>
 </head>
 <body>
 	<header>
 		<div class="row">
 			<div class="col-sm-8 upper">
-				<div class="upperleft1">Grab</div>
-				<div class="upperleft2">Cab</div>
+				<div class="upperleft1" style="color: #14bdee;">Grab</div>
+				<div class="upperleft2" style="color: #384158;">Cab</div>
 				<div>
 					<img src="/img/12.jpg" style="margin-left:2%;width:67%;float: left;"><hr style="float:left;color:black;"/>
 				</div>
 			</div>
-			<a href="/logout" class="btn btn-default">Logout</a><br/>
+			<h1 style="margin-top: 4%;">hello ${users.firstname}</h1>
+			<a href="/logout" class="btn btn-primary" style="margin-left: 93%;margin-top: -6%; width:auto;">Logout</a><br/>
 		</div>
 	</header>
 
 	<div class="row main">
 		<form method="post" action="search-trip">
 		
-			<div class="col-sm-6 left">
+		
+			<div class="col-sm-12 left">
 				<div class="inner">
-				<
-				<input type="text" name="source" style="margin-top: 16%;" placeholder="Enter source..." value="${trip.source}"><br/><br/>
-				<input type="text" name="destination" placeholder="Enter Destination..." value="${trip.destination}"><br/><br/>
-				<input type="submit" class="btn-danger btn" value="Search" />
+				<input type="text" name="source" placeholder="Enter source..." value="${trip.source}">
+				<input type="text" name="destination" placeholder="Enter Destination..." value="${trip.destination}"><br /><br />
+				<input type="submit" class="btn-danger btn" value="Search" style="margin-left:34%;" />
 				</div>
 			</div>
 		</form>
 		
-		<div class="col-sm-6">
+		<!-- <div class="col-sm-6">
 			<div class="row right">
 				<div class="inner2">
 					<div class="history">HISTORY</div><br/><br/>
@@ -86,8 +68,8 @@ tr:nth-child(even) {
 					</div>
 				</div>
 			</div>
-		</div>
-	</div>
+		</div>-->
+	</div> 
 	<footer class="footer-distributed">
 
 			<div class="footer-left">

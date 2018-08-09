@@ -41,37 +41,41 @@
                 <input type="hidden" name="id" value="${user.id}"/>
 			<div class="col-sm-4 rightcol">
 				<div class="col-3">
-					<input class="effect-16" type="text" placeholder="First Name" name="firstname" value="${user.firstname}"/>
+					<input class="effect-16" type="text" placeholder="First Name" name="firstname" value="${user.firstname}" required=""/>
 					<label></label>
 					<span class="focus-border"></span>
 				</div>
 				<div class="col-3">
-					<input class="effect-16" type="text" placeholder="Last Name" name="lastname" value="${user.lastname}"/>
+					<input class="effect-16" type="text" placeholder="Last Name" name="lastname" value="${user.lastname}" required=""/>
 					<label></label>
 					<span class="focus-border"></span>
 				</div>
 				<div class="col-3">
-					<input class="effect-16" type="text" placeholder="Email ID" name="email" value="${user.email}" ng-model="email"/>
+					<input class="effect-16" type="email" placeholder="Email ID" name="email" value="${user.email}" ng-model="email" required=""/>
 					<label></label>
 					<span class="focus-border"></span>
 				</div>
 				<div class="col-3">
-					<input class="effect-16" type="text" placeholder="Contact No" name="contact" value="${user.contact}"/>
+					<input class="effect-16" type="tel" pattern="^\d{10}$" placeholder="Contact No" name="contact" value="${user.contact}" required=""/>
 					<label></label>
 					<span class="focus-border"></span>
 				</div>
 				<div class="col-3">
-					<input class="effect-16" type="text" placeholder="Gender" name="gender" value="${user.gender}"/>
+				<label>Gender</label>
+					<select class="effect-16" placeholder="Gender" name="gender" value="${user.gender}" required="">
+					<option>Male</option>
+													<option>Female</option>
+													</select>
 					<label></label>
 					<span class="focus-border"></span>
 				</div>
 				<div class="col-3">
-					<input class="effect-16" type="text" placeholder="Address" name="address" value="${user.address}"/>
+					<input class="effect-16" type="text" placeholder="Address" name="address" value="${user.address}" required=""/>
 					<label></label>
 					<span class="focus-border"></span>
 				</div>
 				<div class="col-3">
-					<input class="effect-16" type="password" placeholder="Choose Your Password" name="password" value="${user.password}"/>
+					<input class="effect-16" type="password" placeholder="Choose Your Password" name="password" value="${user.password}" required=""/>
 					<label></label>
 					<span class="focus-border"></span>
 				</div>

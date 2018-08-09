@@ -73,7 +73,8 @@ public class ApplicationController {
 	public String insertUser(@ModelAttribute User user,BindingResult bindingResult,HttpServletRequest request) {
 		userService.saveMyUser(user);
 		//return "welcomepage";
-		request.setAttribute("users",userService.showAllUsers());
+		//request.setAttribute("users",userService.showAllUsers());
+		request.setAttribute("users",userService.findByEmail(user.getEmail()));
 		return "userdashboard";
 	}
 	
@@ -142,7 +143,7 @@ public class ApplicationController {
 	public String insertDriver(@ModelAttribute Driver driver,BindingResult bindingResult,HttpServletRequest request) {
 		driverService.saveMyDriver(driver);
 		//return "welcomepage";
-		request.setAttribute("drivers",driverService.showAllDrivers());
+		request.setAttribute("drivers",driverService.findByEmail(driver.getEmail()));
 		return "driverdashboard";
 	}
 	
